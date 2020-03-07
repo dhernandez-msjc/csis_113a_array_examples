@@ -4,6 +4,7 @@
 // Example 02 - Practice with a vector
 
 #include <iostream>
+#include <iomanip>
 #include <cstdlib>
 #include <ctime>
 #include <vector>
@@ -16,6 +17,7 @@ int main() {
     // pre-define min and max
     const int MIN = -5;
     const int MAX = 5;
+    const int NUMBER_OF_DIGITS = 2;
 
     // declare and initialize an array with pre-filled data
     vector<int> numbers(5);
@@ -25,9 +27,13 @@ int main() {
         number = rand() % (MAX - MIN + 1) + MIN;
     }
 
+    // format the output
+    cout << setfill(' ');
+
     // display values from the array
+    cout << "Here are your random numbers between " << MIN << " and " << MAX << ": " << endl;
     for (auto number : numbers) {
-        cout << number << endl;
+        cout << setw(NUMBER_OF_DIGITS) << number << endl;
     }
     return 0;
 }
