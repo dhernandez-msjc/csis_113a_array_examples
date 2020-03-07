@@ -18,9 +18,10 @@ int main() {
     const int MIN = -5;
     const int MAX = 5;
     const int NUMBER_OF_DIGITS = 2;
+    const int AMOUNT_OF_NUMBERS = 5;
 
     // declare and initialize an array with pre-filled data
-    vector<int> numbers(5);
+    vector<int> numbers(AMOUNT_OF_NUMBERS);
 
     // fill array with random values
     for (auto &number : numbers) {
