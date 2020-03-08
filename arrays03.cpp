@@ -4,6 +4,8 @@
 // Example 03 - A brief intro to modern random generator (C++11)
 
 #include <iostream>
+#include <functional>
+#include <ctime>
 #include <iomanip>
 #include <string>
 #include <vector>
