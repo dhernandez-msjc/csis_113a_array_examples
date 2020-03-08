@@ -28,13 +28,13 @@ string names[ARRAY_SIZE];
 
 Also notice that initialization can be done at time of declaration, or at later if desired.  The text mentions that
 vectors are preferred over regular arrays due to safety.  Vectors will check out of bounds for instance. 
-<br>
+<br><br>
 
 ### arrays02.cpp
 ***
 In this example, we take a look at utilizing vectors instead of arrays.  Notice that we can instantiate a vector with
 a starting size.  Vectors are dynamic arrays, so they are arrays underneath the hood.  
-<br>
+<br><br>
 
 ### arrays03.cpp
 ***
