@@ -14,13 +14,15 @@
     #define _clear "clear"
 #endif
 
+#define MAX_INPUT 1024
+
 namespace Hernandez {
     void clearConsole() {
         system(_clear);
     }
 
     void clearInputStream() {
-        std::cin.ignore(10000, '\n');
+        std::cin.ignore(MAX_INPUT, '\n');
         std::cin.clear();
     }
 
