@@ -5,8 +5,6 @@
 // pre-processor directives to determine Operating System
 #include <cstdlib>
 #include <iostream>
-#include <string>
-#include <vector>
 #include "magicEightBallFunctions.hpp"
 
 // pre-processor directives determines the OS the program is running on.
@@ -22,7 +20,7 @@ namespace Hernandez {
     }
 
     void clearInputStream() {
-        std::cin.ignore(MAX_INPUT, '\n');
+        std::cin.ignore(10000, '\n');
         std::cin.clear();
     }
 

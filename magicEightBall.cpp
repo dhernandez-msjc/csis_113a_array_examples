@@ -4,6 +4,8 @@
 // Magic Eight Ball - Simple program which simulates the shaking of a magic eight ball.
 
 #include <iostream>
+#include <ctime>
+#include <functional>
 #include <string>
 #include <vector>
 #include <random>
@@ -36,7 +38,7 @@ int main() {
     // create the function generator, remember, vector size is +1 to item index
     uniform_int_distribution<int> distribution(0, OUTPUT_MESSAGES.size() - 1);
 
-    // create anonymous function to generate values between min and max possibilities
+    // creates a functional to generate values between min and max possibilities
     auto generateRandomValue = bind(distribution, generator);
 
     while (true) {
