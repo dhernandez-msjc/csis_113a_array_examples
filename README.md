@@ -3,6 +3,8 @@ In this repository are several of examples of how we can declare, initialize and
 important to remember that it takes practice to get the hang of some of the algorithms.  I encourage you to walk through 
 the examples and see what sparks up questions to bring up during lecture. 
 
+###### Author: David C Hernandez, MSW, MBA
+
 ## arrays01.cpp
 In this example, we look at the way to create simple arrays using bracket notation.  Notice that we utilize a similar 
 pattern of declaration, so in order for the compiler to make sense of the difference between a regular variable and an 
@@ -32,3 +34,5 @@ a starting size.  Vectors are dynamic arrays, so they are arrays underneath the 
 ## arrays03.cpp
 In this example we take a moment to look at how we can utilize the modern random number generator, as well as make a 
 constant array for storage of titles.  
+
+## arrays04.cpp (coming soon)

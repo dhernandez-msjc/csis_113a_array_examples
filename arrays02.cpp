@@ -1,4 +1,4 @@
-// Name: David Hernandez
+// Name: David C Hernandez, MSW, MBA
 // Associate Faculty CSIS MSJC
 // GitHub Link:  https://github.com/dhernandez-msjc/csis_113a_array_examples
 // Example 02 - Practice with a vector
