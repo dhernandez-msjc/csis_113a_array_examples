@@ -42,7 +42,7 @@ int main() {
     // determine the size of the longest name in the names vector
     int longestNameLength = 0;
 
-    for (auto name : HERO_NAMES) {
+    for (const auto &name : HERO_NAMES) {
         if (name.length() > longestNameLength) {
             longestNameLength = name.length();
         }
