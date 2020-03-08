@@ -3,7 +3,7 @@ In this repository are several of examples of how we can declare, initialize and
 important to remember that it takes practice to get the hang of some of the algorithms.  I encourage you to walk through 
 the examples and see what sparks up questions to bring up during lecture. 
 
-###### David C Hernandez, MSW, MBA <br>Associate Faculty, CSIS <br>Mt San Jacinto
+###### David C Hernandez, MSW, MBA <br>Associate Faculty, CSIS <br>Mt San Jacinto College
 <br>
 
 ### arrays01.cpp
