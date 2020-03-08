@@ -49,12 +49,15 @@ Code and details coming soon.
 
 ### magicEightBall.cpp
 ***
-<br><br>
-
-### magicEightBallFunctions.cpp
-***
+Simple Magic Eight-ball program which utilizes loops.
 <br><br>
 
 ### magicEightBallFunctions.hpp
 ***
+Contains function prototypes for use in the program. 
+<br><br>
+
+### magicEightBallFunctions.cpp
+***
+Contains functions definitions. 
 <br><br>
