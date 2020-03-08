@@ -49,15 +49,20 @@ Code and details coming soon.
 
 ### magicEightBall.cpp
 ***
-Simple Magic Eight-ball program which utilizes loops.
+Simple Magic Eight-ball program.  Program allows user to enter a question, program generates a random number to decide
+what statement to output. This program utilizes the modern random generator (C++11), and vector to hold the list of
+messages.
 <br><br>
 
-### magicEightBallFunctions.hpp
+> magicEightBallFunctions.hpp
 ***
 Contains function prototypes for use in the program. 
+* clearConsole()
+* clearInputStream()
+* pauseConsole()
 <br><br>
 
-### magicEightBallFunctions.cpp
+> magicEightBallFunctions.cpp
 ***
 Contains functions definitions. 
 <br><br>
