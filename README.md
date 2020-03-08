@@ -42,9 +42,9 @@ In this example we take a moment to look at how we can utilize the modern random
 constant array for storage of titles.  
 <br><br>
 
-### arrays04.cpp (coming soon)
+### arrays04.cpp
 ***
-Code and details coming soon.
+Example of generating a random number to isolate a name from a list of names. 
 <br><br>
 
 ### magicEightBall.cpp
