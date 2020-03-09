@@ -47,6 +47,11 @@ constant array for storage of titles.
 Example of generating a random number to isolate a name from a list of names. 
 <br><br>
 
+### arrays05.cpp
+***
+Illustration of some basic algorithms with vectors
+<br><br>
+
 ### magicEightBall.cpp
 ***
 Simple Magic Eight-ball program.  Program allows user to enter a question, program generates a random number to decide
