@@ -21,11 +21,6 @@ int main() {
             "Oh look! A squirrel"
     };
 
-    // declare and initialize an enum for switch readability
-    enum MessageType {
-        POSITIVE, NEGATIVE, MAYBE, DISTRACTION
-    };
-
     // create border for message
     const string BORDER(45, '~');
 
@@ -33,13 +28,13 @@ int main() {
     default_random_engine generator;
 
     // seed the random number generator
-    generator.seed(time(nullptr));
+    generator.seed(static_cast<unsigned >(time(nullptr)));
 
     // create the function generator, remember, vector size is +1 to item index
     uniform_int_distribution<int> distribution(0, OUTPUT_MESSAGES.size() - 1);
 
     // creates a functional to generate values between min and max possibilities
-    auto generateRandomValue = bind(distribution, generator);
+    auto generateRandomCommentIndex = bind(distribution, generator);
 
     while (true) {
         // clear the console
@@ -60,26 +55,8 @@ int main() {
             break;
         }
 
-        // generate a random value
-        unsigned choice = generateRandomValue();
-
         // prepare a storage location for the output message
-        string outputMessage;
-
-        // assign the output message based on the generated random value
-        switch (choice) {
-            case POSITIVE:
-                outputMessage = OUTPUT_MESSAGES[POSITIVE];
-                break;
-            case NEGATIVE:
-                outputMessage = OUTPUT_MESSAGES[NEGATIVE];
-                break;
-            case MAYBE:
-                outputMessage = OUTPUT_MESSAGES[MAYBE];
-                break;
-            case DISTRACTION:
-                outputMessage = OUTPUT_MESSAGES[DISTRACTION];
-        }
+        string outputMessage = OUTPUT_MESSAGES[generateRandomCommentIndex()];
 
         // clear the console
         Hernandez::clearConsole();
