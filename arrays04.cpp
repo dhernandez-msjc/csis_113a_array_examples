@@ -1,46 +1,40 @@
 // Name: David C Hernandez, MSW, MBA
 // Associate Faculty CSIS MSJC
 // GitHub Link:  https://github.com/dhernandez-msjc/csis_113a_array_examples
-// Example 04 - Pulling a random name from a list.
+// Example 04 - Practice with a vector
 
 #include <iostream>
-#include <functional>
+#include <iomanip>
+#include <cstdlib>
 #include <ctime>
 #include <vector>
-#include <random>
-#include <string>
 using namespace std;
 
 int main() {
-    // a list of random super hero names
-    const vector<string> SUPER_HEROES = {
-            "The Flash",
-            "SuperMan",
-            "Wonder Woman",
-            "Batman",
-            "Killer Frost",
-            "Spiderman",
-            "Vibe",
+    // seed the random number generator
+    srand(static_cast<unsigned>(time(nullptr)));
 
-    };
+    // pre-define min and max
+    const int MIN = -5;
+    const int MAX = 5;
+    const int NUMBER_OF_DIGITS = 2;
+    const int AMOUNT_OF_NUMBERS = 5;
 
-    // create a random number generator
-    default_random_engine generator;
+    // declare and initialize an array with pre-filled data
+    vector<int> numbers(AMOUNT_OF_NUMBERS);
 
-    // seed the random number generator with the current time
-    generator.seed(static_cast<unsigned>(time(nullptr)));
+    // fill array with random values
+    for (auto &number : numbers) {
+        number = rand() % (MAX - MIN + 1) + MIN;
+    }
 
-    // create a uniform distribution of integers
-    uniform_int_distribution<int> distribution(1, SUPER_HEROES.size());
+    // format the output
+    cout << setfill(' ');
 
-    // create a functional to generate random numbers
-    auto generateRandomIndex = bind(distribution, generator);
-
-    // generate a random value to draw a random name from the list
-    string hero = SUPER_HEROES[generateRandomIndex() - 1];
-
-    // display the name
-    cout << "Name: " << hero << endl;
-
+    // display values from the array
+    cout << "Here are your random numbers between " << MIN << " and " << MAX << ": " << endl;
+    for (auto number : numbers) {
+        cout << setw(NUMBER_OF_DIGITS) << number << endl;
+    }
     return 0;
 }

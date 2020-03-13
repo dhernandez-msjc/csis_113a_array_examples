@@ -13,6 +13,9 @@ int main() {
     // You can determine the size of the array utilizing the size( ) function
     cout << "Size of numbers array: " << size(numbers) << endl << endl;
 
+    // access a single element within the array
+    cout << "First Value: " << numbers[0] << endl << endl;
+
     // Since the elements of an array are contiguous, we can use a for-loop to
     // present each index in the array in order to access all or certain elements
     cout << "Printing the array:  ";

@@ -1,71 +1,69 @@
 // Name: David C Hernandez, MSW, MBA
 // Associate Faculty CSIS MSJC
 // GitHub Link:  https://github.com/dhernandez-msjc/csis_113a_array_examples
-// Example 05 - Simple Algorithms involving vectors/arrays
+// Example 05 - A brief intro to modern random generator (C++11)
 
 #include <iostream>
-#include <random>
-#include <ctime>
 #include <functional>
-#include <vector>
+#include <ctime>
+#include <iomanip>
 #include <string>
-
+#include <vector>
+#include <random>
 using namespace std;
 
 int main() {
-    // create a constant for the desired size of the vector
-    const int VECTOR_SIZE = 5;
+    // create constants for random numbers
+    const int NUMBER_OF_DIGITS = 3;
+    const int MIN_VALUE = 100;
+    const int MAX_VALUE = 999;
 
-    // create constants for min and max values to generate
-    const int MIN = 1;
-    const int MAX = 99;
-
-    // create a random number generator
+    // setup the random generator
     default_random_engine generator;
 
-    // seed the random number generator with the current time
-    generator.seed(static_cast<unsigned>(time(nullptr)));
+    // seed the random generator with the current time
+    generator.seed(time(nullptr));
 
-    // create a vector that will hold our random values
-    vector<int> numbers(VECTOR_SIZE);
+    // setup the distribution pattern desired along with min and max
+    uniform_int_distribution<int> distribution(MIN_VALUE, MAX_VALUE);
 
-    // create a uniform distribution of integers
-    uniform_int_distribution<int> distribution(MIN, MAX);
-
-    // create a functional to generate random numbers
+    // create a functional method to call the generator
     auto generateRandomNumber = bind(distribution, generator);
 
-    // (1) FILL vector/array with random integers ================================================
-    for (auto &number : numbers) {
+    // create constant holding hero names
+    const vector<string> HERO_NAMES = {"The Flash", "Superman", "Batman", "Wonder Woman", "Vibe", "Killer Frost"};
+
+    // create vector to hold the random numbers they will draw
+    vector<int> heroRandomNumbers(HERO_NAMES.size());
+
+    // fill the vector with the random numbers for each hero
+    for(auto &number : heroRandomNumbers) {
         number = generateRandomNumber();
     }
 
-    // (2) Display the values of the vector linearly =============================================
-    // keep track of index
-    unsigned index = 0;
+    // determine the size of the longest name in the names vector
+    int longestNameLength = 0;
 
-    // display the opening brace
-    cout << "[";
-
-    // iterate through each value in the numbers vector/array
-    for (auto &number : numbers) {
-        // display the value
-        cout << number;
-
-        // create a separator
-        const string SEPARATOR = ", ";
-
-        // determine if the current number is the last value, if not, add in delimiter and space
-        if (index < numbers.size() - 1) {
-            cout << SEPARATOR;
-            index++;
+    for (const auto &name : HERO_NAMES) {
+        if (name.length() > longestNameLength) {
+            longestNameLength = name.length();
         }
     }
 
-    // end the loop and close the set
-    cout << "]" << endl;
+    // create a border for displaying results
+    const string BORDER(25, '~');
 
+    // display the outer border for output generation
+    cout << BORDER << endl;
 
+    // display the output for each Hero
+    for (int i = 0; i < HERO_NAMES.size(); ++i) {
+        cout << i + 1 << ") " << setw(longestNameLength) << left << HERO_NAMES[i] << ": ";
+        cout << setw(BORDER.length() - longestNameLength -  NUMBER_OF_DIGITS - 2) << right << heroRandomNumbers[i] << endl;
+    }
+
+    // display the closing border
+    cout << BORDER << endl;
 
     return 0;
 }
