@@ -32,22 +32,45 @@ vectors are preferred over regular arrays due to safety.  Vectors will check out
 
 ### arrays02.cpp
 ***
+In this example we take a look at the modern array found in c++ through the array class.  In order to utilize this, we
+must include the array in the preprocessor directives. 
+```c++
+#include <array>
+// we still must supply the size of the array
+array<int, SIZE> nameOfArray;
+
+// you can set a small predefined array as well
+array<int, SIZE> nameOfArray {1, 2, 3, ...};
+```
+ 
+<br><br>
+
+### arrays03.cpp
+***
+In this example we take a look at the vector object and how it can be used similarly as c-style, and regular arrays in
+c++.  Vectors are going to be your main go to, but it is important to remember that the other two ways exist.  When a 
+problem calls for a smaller and set domain of values, meaning, no additional space is needed, then reach for the array
+class.  
+<br><br>
+
+### arrays04.cpp
+***
 In this example, we take a look at utilizing vectors instead of arrays.  Notice that we can instantiate a vector with
 a starting size.  Vectors are dynamic arrays, so they are arrays underneath the hood.  
 <br><br>
 
-### arrays03.cpp
+### arrays05.cpp
 ***
 In this example we take a moment to look at how we can utilize the modern random number generator, as well as make a 
 constant array for storage of titles.  
 <br><br>
 
-### arrays04.cpp
+### arrays06.cpp
 ***
-Example of generating a random number to isolate a name from a list of names. 
+Illustration of some basic algorithms with vectors
 <br><br>
 
-### arrays05.cpp
+### arrays07.cpp
 ***
 Illustration of some basic algorithms with vectors
 <br><br>

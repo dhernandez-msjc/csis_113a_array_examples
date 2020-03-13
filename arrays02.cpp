@@ -28,8 +28,10 @@ int main() {
     // you can utilize the reverse  pointers of the array to print in reverses
     // notice here that i is set to the reverse beginning, and stops at the reverse end
     // this allows you to print the contents of the array backwards.
-    for(auto i = numbers.rbegin(); i != numbers.rend(); ++i) {
-        cout << *i << " ";
+    for(auto r = numbers.rbegin(); r != numbers.rend(); ++r) {
+        // notice that here we are using the * operator, in this context this is
+        // known as the dereference operator. We are able to see what value r currently is
+        cout << *r << " ";
     }
     cout << endl << endl;
 

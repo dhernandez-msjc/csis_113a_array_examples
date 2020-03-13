@@ -43,6 +43,12 @@ int main() {
     }
     cout << endl << endl;
 
+    // lets say we want to print the array in reverse, we would have to start at the end
+    for (int i = size(numbers) - 1; i >= 0; --i) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl << endl;
+
     return 0;
 }
 
