@@ -5,11 +5,7 @@
 
 #include <iostream>
 #include <functional>
-#include <ctime>
-#include <iomanip>
-#include <string>
 #include <vector>
-#include <random>
 using namespace std;
 
 int main() {
