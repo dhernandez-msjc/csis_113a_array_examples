@@ -27,7 +27,7 @@ int main() {
     // setup the distribution pattern desired along with min and max
     uniform_int_distribution<int> distribution(MIN_VALUE, MAX_VALUE);
 
-    // create a lambda method to call the generator
+    // create a functional method to call the generator
     auto generateRandomNumber = bind(distribution, generator);
 
     // create constant holding hero names
