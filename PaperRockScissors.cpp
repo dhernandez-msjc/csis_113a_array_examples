@@ -5,7 +5,7 @@
 #include <iostream>
 #include <random>
 #include <ctime>
-#include <any>
+#include <array>
 using namespace std;
 
 // determine system os =====================================================
@@ -22,6 +22,7 @@ using namespace std;
 void clearConsole();
 void clearInputStream();
 void pauseConsole();
+char getUserChoice();
 
 // Program enums ------------------------------
 enum ContinueGame { YES = 'y', NO = 'n'};
@@ -42,13 +43,7 @@ int main () {
 
         // prompt the user to go again
         cout << "Would you like to play again? ";
-        cin >> continueGame;
-
-        // force lower casing
-        continueGame = static_cast<char>(tolower(continueGame));
-
-        // clear the input buffer to avoid errors
-        clearInputStream();
+        continueGame = getUserChoice();
     }
 
     // clear the screen before displaying final message
@@ -74,5 +69,22 @@ void clearInputStream() {
 void pauseConsole() {
     cout << "Press <ENTER> to continue ...";
     clearInputStream();
+}
+
+char getUserChoice() {
+    // declare variable for storage of input
+    char userChoice;
+
+    // get user input from keyboard
+    cin >> userChoice;
+
+    // force lower casing
+    userChoice = static_cast<char>(tolower(userChoice));
+
+    // clear the input buffer to avoid errors
+    clearInputStream();
+
+    // return the users selection modified
+    return userChoice;
 }
 
