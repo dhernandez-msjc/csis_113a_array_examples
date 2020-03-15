@@ -3,6 +3,7 @@
 // GitHub Link:  https://github.com/dhernandez-msjc/csis_113a_array_examples
 // Paper, Rock, Scissors
 #include <iostream>
+#include <string>
 #include <random>
 #include <ctime>
 #include <array>
@@ -23,9 +24,11 @@ void clearConsole();
 void clearInputStream();
 void pauseConsole();
 char getUserChoice();
+int  checkWin();
 
 // Program enums ------------------------------
 enum ContinueGame { YES = 'y', NO = 'n'};
+enum HandChoices {PAPER, ROCK, SCISSORS};
 
 int main () {
     // create a random number generator
@@ -34,11 +37,32 @@ int main () {
     // seed the random number generator
     generator.seed(static_cast<unsigned >(time(nullptr)));
 
+    // declare and initialize a list of possible choices
+    const array<string, 3> PLAYABLE_HANDS {
+        "Paper", "Rock", "Scissors"
+    };
+
+    // setup game players
+    unsigned playerChoice = 1;
+    unsigned computerChoice = 0;
+
     // declare and initialize
     char continueGame = YES;
 
     // determine if the user wishes to continue the game
     while (continueGame != NO) {
+        // clear the screen and prompt the user for their choice
+        clearConsole();
+
+        for (int i = 0; i < PLAYABLE_HANDS.size(); ++i) {
+            cout << i + 1 << ") " << PLAYABLE_HANDS[i] << endl;
+        }
+
+        // get user input
+
+        // generate computer input
+
+        // determine winner
 
 
         // prompt the user to go again
@@ -88,3 +112,18 @@ char getUserChoice() {
     return userChoice;
 }
 
+int  checkWin(unsigned player, unsigned computer) {
+    // check if the players didn't win
+    if (player == computer) {
+        switch (player) {
+            case PAPER:
+                return computer == ROCK ? 1 : -1;
+            case ROCK:
+                return computer == SCISSORS ? 1 : -1;
+            case SCISSORS:
+                return computer == PAPER ? 1 : -1;;
+        }
+    }
+    // otherwise return 0 that they tied
+    return 0;
+}
