@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <random>
-#include <ctime>
 #include <functional>
 #include <vector>
 #include <string>
@@ -24,7 +23,7 @@ int main() {
     default_random_engine generator;
 
     // seed the random number generator with the current time
-    generator.seed(static_cast<unsigned>(time(nullptr)));
+    generator.seed(std::random_device{}());
 
     // create a vector that will hold our random values
     vector<int> numbers(VECTOR_SIZE);
