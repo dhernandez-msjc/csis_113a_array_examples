@@ -17,11 +17,8 @@ int main() {
     const int MIN_VALUE = 100;
     const int MAX_VALUE = 999;
 
-    // setup the random generator
-    default_random_engine generator;
-
-    // seed the random generator with the current time
-    generator.seed(std::random_device{}());
+    // create and seed the random number generator
+    default_random_engine generator{random_device{}()};
 
     // setup the distribution pattern desired along with min and max
     uniform_int_distribution<int> distribution(MIN_VALUE, MAX_VALUE);

@@ -5,15 +5,15 @@
 #include <iostream>
 #include <string>
 #include <random>
-#include <ctime>
 #include <array>
+
 using namespace std;
 
 // determine system os =====================================================
 #if defined _WIN32
-    #define _clear "cls"
+#define _clear "cls"
 #else
-    #define _clear "clear"
+#define _clear "clear"
 #endif
 
 #define MAX_INPUT 1024
@@ -21,30 +21,38 @@ using namespace std;
 
 // function prototypes =====================================================
 void clearConsole();
+
 void clearInputStream();
+
 void pauseConsole();
+
 char getUserChoice();
-int  checkWin();
+
+int checkWin();
 
 // Program enums ------------------------------
-enum ContinueGame { YES = 'y', NO = 'n'};
-enum HandChoices {PAPER, ROCK, SCISSORS};
+enum ContinueGame {
+    YES = 'y', NO = 'n'
+};
+enum Hand {
+    PAPER, ROCK, SCISSORS
+};
+enum Winner {
+    DRAW, PLAYER, COMPUTER
+};
 
-int main () {
-    // create a random number generator
-    default_random_engine generator;
-
-    // seed the random number generator
-    generator.seed(static_cast<unsigned >(time(nullptr)));
+int main() {
+    /// create and seed the random number generator
+    default_random_engine generator{random_device{}()};
 
     // declare and initialize a list of possible choices
-    const array<string, 3> PLAYABLE_HANDS {
-        "Paper", "Rock", "Scissors"
+    const array<string, 3> PLAYABLE_HANDS{
+            "Paper", "Rock", "Scissors"
     };
 
     // setup game players
-    unsigned playerChoice = 1;
-    unsigned computerChoice = 0;
+    unsigned playerChoice{};
+    unsigned computerChoice{};
 
     // declare and initialize
     char continueGame = YES;
@@ -112,18 +120,18 @@ char getUserChoice() {
     return userChoice;
 }
 
-int  checkWin(unsigned player, unsigned computer) {
+int checkWin(unsigned player, unsigned computer) {
     // check if the players didn't win
-    if (player == computer) {
+    if (player != computer) {
         switch (player) {
-            case PAPER:
-                return computer == ROCK ? 1 : -1;
-            case ROCK:
-                return computer == SCISSORS ? 1 : -1;
-            case SCISSORS:
-                return computer == PAPER ? 1 : -1;;
+            case Hand::PAPER:
+                return computer == ROCK ? PLAYER : COMPUTER;
+            case Hand::ROCK:
+                return computer == SCISSORS ? PLAYER : COMPUTER;
+            case Hand::SCISSORS:
+                return computer == PAPER ? PLAYER : COMPUTER;;
         }
     }
     // otherwise return 0 that they tied
-    return 0;
+    return DRAW;
 }

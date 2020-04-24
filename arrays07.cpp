@@ -19,11 +19,8 @@ int main() {
     const int MIN = 1;
     const int MAX = 99;
 
-    // create a random number generator
-    default_random_engine generator;
-
-    // seed the random number generator with the current time
-    generator.seed(std::random_device{}());
+    // create and seed the random number generator
+    default_random_engine generator{random_device{}()};
 
     // create a vector that will hold our random values
     vector<int> numbers(VECTOR_SIZE);
@@ -47,7 +44,7 @@ int main() {
     cout << "[";
 
     // iterate through each value in the numbers vector/array
-    for (auto &number : numbers) {
+    for (const auto &number : numbers) {
         // display the value
         cout << number;
 

@@ -10,7 +10,7 @@ using namespace std;
 int main() {
     // declare and initialize an array using an object array C++11 feature
     // notice this style also limits the size of the array, however is safer than using c-style array
-    // you still desginate the type, size and name of the array.
+    // you still designate the type, size and name of the array.
     array<int, 5> numbers = {1, 3, 9, 7, 2};
 
     // use the for each loop to display the elements

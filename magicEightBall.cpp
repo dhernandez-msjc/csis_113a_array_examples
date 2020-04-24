@@ -14,7 +14,7 @@ using namespace std;
 
 int main() {
     // declare and initialize a vector of output messages
-    const std::vector<std::string> OUTPUT_MESSAGES {
+    const std::vector<std::string> OUTPUT_MESSAGES{
             "That sounds like a possibility",
             "Not a chance during this timeline",
             "Maybe",
@@ -24,11 +24,8 @@ int main() {
     // create border for message
     const string BORDER(45, '~');
 
-    // initialize the random number engine
-    default_random_engine generator;
-
-    // seed the random number generator
-    generator.seed(static_cast<unsigned >(time(nullptr)));
+    // create and seed the random number generator
+    default_random_engine generator{random_device{}()};
 
     // create the function generator, remember, vector size is +1 to item index
     uniform_int_distribution<int> distribution(0, OUTPUT_MESSAGES.size() - 1);
