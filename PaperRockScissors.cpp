@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <random>
+#include <functional>
 #include <array>
 
 using namespace std;
@@ -50,9 +51,13 @@ int main() {
             "Paper", "Rock", "Scissors"
     };
 
+    // create random generator functional
+    uniform_int_distribution<int> distribution(0, PLAYABLE_HANDS.size() - 1);
+    auto roll{bind(distribution, generator)};
+
     // setup game players
     unsigned playerChoice{};
-    unsigned computerChoice{};
+    unsigned computerChoice = roll();
 
     // declare and initialize
     char continueGame = YES;
