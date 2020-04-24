@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <functional>
-#include <ctime>
 #include <iomanip>
 #include <string>
 #include <vector>
@@ -22,7 +21,7 @@ int main() {
     default_random_engine generator;
 
     // seed the random generator with the current time
-    generator.seed(time(nullptr));
+    generator.seed(std::random_device{}());
 
     // setup the distribution pattern desired along with min and max
     uniform_int_distribution<int> distribution(MIN_VALUE, MAX_VALUE);

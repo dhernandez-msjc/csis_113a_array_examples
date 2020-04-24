@@ -27,7 +27,7 @@ int main() {
     default_random_engine generator;
 
     // seed the random number generator with the current time
-    generator.seed(static_cast<unsigned>(time(nullptr)));
+    generator.seed(std::random_device{}());
 
     // create a uniform distribution of integers
     uniform_int_distribution<int> distribution(1, SUPER_HEROES.size());
