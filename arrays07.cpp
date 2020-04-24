@@ -64,7 +64,5 @@ int main() {
     // end the loop and close the set
     cout << "]" << endl;
 
-
-
     return 0;
 }
